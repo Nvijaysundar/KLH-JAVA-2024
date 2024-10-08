@@ -1,0 +1,69 @@
+To generate the billing system with the amounts displayed in Rupees format (₹), the program can use `String.format` or `NumberFormat` to ensure proper formatting of currency values. Below is the scenario with amounts in Rupees (₹):
+
+ Scenario:
+You are designing a Hospital Billing System for managing patient treatments and calculating the final bill in Rupees (₹). Each patient can either be an Outpatient or Inpatient. Based on their type, the hospital charges different fees. Your task is to build a program where the user can input details of the patient, add treatments or services, and calculate the final bill.
+
+ Problem Requirements:
+1. Instance variables should be used to store patient details like the patient's name, type of admission (Outpatient or Inpatient), and the accumulated treatment cost in Rupees.
+2. Static variables should be used to store general hospital information like the hospital name and base consultation fee, which is ₹1000.
+3. Local variables should be used within methods to handle temporary calculations.
+4. Use constructors to initialize the patient’s details like their name and type of admission.
+5. Implement methods for the following operations:
+   - Add a treatment or service and update the treatment cost.
+   - Apply special charges (for Inpatients).
+   - Calculate and display the final bill.
+6. Use decision-making statements to manage operations such as:
+   - Deciding if special charges apply based on the patient's type.
+   - Deciding whether a service is available.
+7. Use operators to calculate the bill (addition for treatments, multiplication for charges).
+8. Use different data types such as `String`, `double`, and `int` for patient information, costs, and calculations.
+9. Ensure there’s no use of arrays, collections, inheritance, polymorphism, or data structures.
+
+ Scenario Description:
+- Outpatients: Pay a base consultation fee of ₹1000 and additional fees for any services or treatments they receive.
+- Inpatients: Pay a base consultation fee of ₹1000 and additional charges of 20% on the total treatment cost for hospital stay.
+- The user should be able to add treatments (with their cost) to the patient’s bill in Rupees.
+- Once all treatments are added, the final bill can be calculated and displayed in Rupees format.
+
+ Constraints:
+- Treatment costs should be greater than ₹0.
+- Only Inpatients should have an extra charge for hospital stay.
+- The bill should always include the base consultation fee.
+
+ Input:
+- A single line containing the patient’s name, type (Inpatient or Outpatient), followed by a list of services or treatments and their respective costs in Rupees.
+
+ Expected Behavior:
+- For each service or treatment, add its cost to the patient’s bill.
+- If the patient is an Inpatient, add 20% of the total treatment cost as hospital stay charges.
+- Display the final bill in Rupees format.
+
+ Example Input:
+```
+Rajesh Inpatient consultation 5000 surgery 20000
+```
+
+ Example Output:
+```
+Patient Name: Rajesh
+Patient Type: Inpatient
+Total Treatment Cost: ₹25,000.00
+Hospital Stay Charges (20%): ₹5,000.00
+Final Bill: ₹31,000.00
+```
+
+ Example Input 2:
+```
+Meera Outpatient consultation 1000 lab_tests 3000
+```
+
+ Example Output 2:
+```
+Patient Name: Meera
+Patient Type: Outpatient
+Total Treatment Cost: ₹4,000.00
+Final Bill: ₹5,000.00
+```
+
+ Your Task:
+Write a Java program based on the scenario, adhering to the provided constraints, and ensuring that the final output is displayed in Rupees format (₹).
