@@ -1,5 +1,3 @@
-To generate the billing system with the amounts displayed in Rupees format (₹), the program can use `String.format` or `NumberFormat` to ensure proper formatting of currency values. Below is the scenario with amounts in Rupees (₹):
-
  Scenario:
 You are designing a Hospital Billing System for managing patient treatments and calculating the final bill in Rupees (₹). Each patient can either be an Outpatient or Inpatient. Based on their type, the hospital charges different fees. Your task is to build a program where the user can input details of the patient, add treatments or services, and calculate the final bill.
 
