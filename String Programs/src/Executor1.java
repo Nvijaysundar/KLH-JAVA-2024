@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class Executor1 {
 	public static void main(String[] args) {
 		String str = "Java Programming",
-				str2 = "             Hai Hello     ";
+				str2 = "             Hai Hello     ".strip();
+		str2 = str2.concat("Everyone");
+		System.out.println(str2);
 		
 		System.out.println(str.length());
 		System.out.println(str.isEmpty());
