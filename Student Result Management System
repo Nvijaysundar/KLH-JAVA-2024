@@ -1,0 +1,53 @@
+Student Result Management System
+Objective: Design a basic Student Result Management System using multiple classes in the same package. This system should perform operations like recording and displaying student details and calculating results based on scores in various subjects.
+
+Requirements
+Package Structure: Create a package named studentmanagement with multiple classes:
+
+Student
+Exam
+Result
+Classes and Methods:
+
+Class Student:
+
+Fields:
+String name
+String studentID
+String gradeLevel
+double totalScore
+Constructor: Initializes name, studentID, and gradeLevel.
+Methods:
+String getStudentInfo(): Returns a formatted string of the student's details (name, studentID, and grade level).
+void updateTotalScore(double score): Adds a subject score to the totalScore.
+Class Exam:
+
+Fields:
+String subject
+double score
+Constructor: Initializes subject and score.
+Methods:
+String getSubjectInfo(): Returns a string describing the subject and score.
+Class Result:
+
+Fields:
+Student student
+double passingScore
+Constructor: Initializes student and passingScore.
+Methods:
+String calculateResult(): Evaluates if the student has passed or failed based on their total score and the passing score.
+void displayResult(): Prints the result details and whether the student has passed.
+Logic and String Manipulation:
+
+Use String methods such as length(), toUpperCase(), concat(), and substring() for formatting student names and student IDs.
+Implement if-else statements in calculateResult() for determining whether the student has passed or failed.
+Use for and while loops to allow multiple subjects to be entered and scores to be updated for each student until a stop condition (e.g., subject = "end").
+Flow of the Program:
+
+Create instances of the Student and Exam classes.
+Accept user input for student details and scores in multiple subjects.
+Display the student information and their result by calling appropriate methods.
+Example Usage:
+
+Input: Student's name, student ID, grade level, subject names, and scores.
+Output: Display student information, total score, and pass/fail status.
