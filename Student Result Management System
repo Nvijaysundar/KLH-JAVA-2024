@@ -1,53 +1,99 @@
-Student Result Management System
-Objective: Design a basic Student Result Management System using multiple classes in the same package. This system should perform operations like recording and displaying student details and calculating results based on scores in various subjects.
+Project Title: Student Result Management System
 
-Requirements
-Package Structure: Create a package named studentmanagement with multiple classes:
+Objective:  
+Design a basic Student Result Management System using object-oriented programming in Java. This system will allow recording and displaying details of individual students, accepting multiple subjects with their respective scores, and calculating the student’s final result based on a pass/fail criterion. The project should implement multiple classes within the same package, leverage various types of String manipulations, and make use of loops and decision-making statements.
 
-Student
-Exam
-Result
-Classes and Methods:
+Constraints:
+- No Collection Framework (like ArrayList, HashMap, etc.).
+- No Arrays or Data Structures other than basic data types (e.g., String, int, double).
+  
+ Requirements and Design Specifications
 
-Class Student:
+# Package Structure:
+Create a package named studentmanagement, which will include the following classes:
+- Student: Contains personal and academic information.
+- Exam: Stores details of a subject and score.
+- Result: Calculates and displays the final result based on the student’s score and passing criteria.
+- Main: Executes the flow of the application, handling user input and interactions.
 
-Fields:
-String name
-String studentID
-String gradeLevel
-double totalScore
-Constructor: Initializes name, studentID, and gradeLevel.
-Methods:
-String getStudentInfo(): Returns a formatted string of the student's details (name, studentID, and grade level).
-void updateTotalScore(double score): Adds a subject score to the totalScore.
-Class Exam:
+# Class Details
 
-Fields:
-String subject
-double score
-Constructor: Initializes subject and score.
-Methods:
-String getSubjectInfo(): Returns a string describing the subject and score.
-Class Result:
+1. Class: Student
+   - Fields:
+     - String name - Name of the student, should be formatted to uppercase.
+     - String studentID - A unique identifier for each student, modified for display purposes.
+     - String gradeLevel - Current grade or level of the student (e.g., "10th Grade").
+     - double totalScore - Accumulates the total score based on multiple subjects.
+   - Constructor: Initializes the student’s name, studentID, and gradeLevel. Initializes totalScore to 0.
+   - Methods:
+     - String getStudentInfo(): Returns a formatted string displaying the student’s name (in uppercase), ID (in a masked format like "ABCDXX"), and grade level.
+     - void updateTotalScore(double score): Updates the totalScore by adding scores from individual subjects, called within each subject entry.
 
-Fields:
-Student student
-double passingScore
-Constructor: Initializes student and passingScore.
-Methods:
-String calculateResult(): Evaluates if the student has passed or failed based on their total score and the passing score.
-void displayResult(): Prints the result details and whether the student has passed.
-Logic and String Manipulation:
+2. Class: Exam
+   - Fields:
+     - String subject - Name of the subject, set upon initialization.
+     - double score - Score achieved in the subject, set upon initialization.
+   - Constructor: Initializes the subject and score fields.
+   - Methods:
+     - String getSubjectInfo(): Returns a formatted string displaying the subject name and score.
 
-Use String methods such as length(), toUpperCase(), concat(), and substring() for formatting student names and student IDs.
-Implement if-else statements in calculateResult() for determining whether the student has passed or failed.
-Use for and while loops to allow multiple subjects to be entered and scores to be updated for each student until a stop condition (e.g., subject = "end").
-Flow of the Program:
+3. Class: Result
+   - Fields:
+     - Student student - Holds a reference to the Student object.
+     - double passingScore - Minimum total score required to pass.
+   - Constructor: Accepts student and passingScore and initializes them.
+   - Methods:
+     - String calculateResult(): Checks if the student’s totalScore is greater than or equal to passingScore. Returns "Passed" if the condition is met, otherwise returns "Failed".
+     - void displayResult(): Displays the student’s information, total score, and pass/fail status by calling appropriate methods.
 
-Create instances of the Student and Exam classes.
-Accept user input for student details and scores in multiple subjects.
-Display the student information and their result by calling appropriate methods.
-Example Usage:
+4. Class: Main
+   - Execution Flow:
+     1. Accepts user input for student details (name, student ID, grade level) to create a Student object.
+     2. Uses a while loop to allow multiple entries for subjects and scores:
+         - Prompts the user to enter a subject name. Exits the loop if "end" is entered.
+         - Prompts the user to enter a score for the subject.
+         - Creates an Exam object for each subject entry and adds the score to the Student's totalScore.
+     3. Accepts input for the minimum passing score, then creates a Result object.
+     4. Calls Result methods to display the student’s total score and pass/fail status.
 
-Input: Student's name, student ID, grade level, subject names, and scores.
-Output: Display student information, total score, and pass/fail status.
+ Functional Flow and Example Usage
+
+1. Student Creation:
+   - Input: Student’s name, ID, and grade level.
+   - Example:
+     - Name: Alice Johnson
+     - Student ID: AJ2024
+     - Grade Level: 10th Grade
+
+   - String Manipulation:
+     - Convert the name to uppercase.
+     - Mask the student ID as “AJ20XX”.
+
+   - Output: "Name: ALICE JOHNSON, ID: AJ20XX, Grade: 10th Grade"
+
+2. Entering Exam Details:
+   - Loop:
+     - The user can enter multiple subjects with scores until they input "end" as the subject.
+   - Example Entries:
+     - Subject: Math, Score: 85.5
+     - Subject: Science, Score: 90.0
+     - Subject: English, Score: 78.5
+   - Score Accumulation: The totalScore in the Student class will accumulate each score.
+
+3. Result Calculation:
+   - Input: Minimum passing score.
+   - Decision Making:
+     - If totalScore >= passingScore, the student passes; otherwise, they fail.
+   - Example:
+     - Passing Score: 250.0
+     - Total Score (from example subjects): 254.0
+     - Output: "Passed"
+
+4. Displaying the Result:
+     Example Output
+     Name: ALICE JOHNSON
+     ID: AJ20XX
+     Grade: 10th Grade
+     Total Score: 254.0
+     Result: Passed
+
