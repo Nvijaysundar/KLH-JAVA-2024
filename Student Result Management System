@@ -1,7 +1,9 @@
 Project Title: Student Result Management System
 
 Objective:  
-Design a basic Student Result Management System using object-oriented programming in Java. This system will allow recording and displaying details of individual students, accepting multiple subjects with their respective scores, and calculating the student’s final result based on a pass/fail criterion. The project should implement multiple classes within the same package, leverage various types of String manipulations, and make use of loops and decision-making statements.
+Design a basic Student Result Management System using object-oriented programming in Java. This system will allow recording and displaying details of individual students, 
+accepting multiple subjects with their respective scores, and calculating the student’s final result based on a pass/fail criterion. The project should implement multiple 
+classes within the same package, leverage various types of String manipulations, and make use of loops and decision-making statements.
 
 Constraints:
 - No Collection Framework (like ArrayList, HashMap, etc.).
