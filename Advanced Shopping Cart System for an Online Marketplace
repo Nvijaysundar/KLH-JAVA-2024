@@ -1,0 +1,121 @@
+Advanced Shopping Cart System for an Online Marketplace
+
+Description:
+
+You are developing an advanced Shopping Cart System for an online marketplace. The application allows customers to add items, apply various types of discounts, categorize products, and generate detailed invoices with tax calculations. This system requires the use of arrays, string manipulations, control statements, and loops.
+
+ Requirements:
+
+1. Multi-package Structure:
+   - Create a modular structure to separate functionality:
+     - cart.items: Defines products available in the cart.
+     - cart.management: Manages cart operations.
+     - cart.discount: Applies various discounts.
+     - cart.tax: Calculates taxes based on item categories.
+     - cart.invoice: Generates detailed invoices for the cart.
+
+2. Key Classes and Methods:
+   
+   - Item (cart.items.Item):
+     - Represents each item in the cart with properties such as name, category, price, and quantity.
+     - Constructor to initialize item details and methods to get item details.
+   
+   - ShoppingCart (cart.management.ShoppingCart):
+     - Manages the shopping cart’s operations:
+       - addItem(Item item): Adds an Item object to the cart.
+       - removeItem(String itemName): Removes an item by name.
+       - calculateTotal(): Calculates the total cost for items in the cart, with discounts applied.
+       - Data Storage: Use arrays to store Item objects.
+   
+   - DiscountHandler (cart.discount.DiscountHandler):
+     - Manages discounts:
+       - 10% discount on electronic items if the quantity is above 2.
+       - 5% discount on total cart value if it exceeds $500.
+       - Seasonal promotions that apply 15% off for a specific category (e.g., “Clothing”).
+       - Use control statements to implement conditional discounts and ensure only one discount type applies per item.
+   
+   - TaxCalculator (cart.tax.TaxCalculator):
+     - Calculates taxes based on the category:
+       - 8% tax on electronics.
+       - 5% tax on clothing.
+       - 3% tax on books.
+       - Applies tax calculations only after discount calculations to ensure accuracy.
+   
+   - InvoiceGenerator (cart.invoice.InvoiceGenerator):
+     - Generates and displays a detailed invoice:
+       - Invoice Details: Include item name, category, price, quantity, total (after discounts), and tax applied.
+       - Final Totals: Display subtotal, total discount, tax, and final payable amount.
+       - Format and align item names using string operations to ensure readability.
+
+3. String Manipulations:
+   - Use string manipulation in InvoiceGenerator to format item names and categories neatly.
+   - Convert item names to uppercase for standardized display.
+   - Display categories in a structured, capitalized format (e.g., “Electronics”, “Clothing”).
+
+4. Control Statements and Loops:
+   - Use control statements to apply conditional discounts based on category and quantity.
+   - Use loops to iterate through items in the cart, calculate individual totals, apply discounts, and calculate tax.
+   - Handle any null entries in the cart array to ensure data consistency.
+
+5. Application Workflow:
+
+   - Step 1: Adding Items: Users add items by specifying name, category, price, and quantity.
+   - Step 2: Applying Discounts: Based on quantity and category, the system applies the relevant discounts.
+   - Step 3: Calculating Tax: The tax is calculated on each item after the discount.
+   - Step 4: Generating Invoice: The system generates an invoice showing all itemized details, discounts, and final totals.
+
+6. Example Usage:
+
+    java
+    import cart.items.Item;
+    import cart.management.ShoppingCart;
+    import cart.invoice.InvoiceGenerator;
+    import cart.discount.DiscountHandler;
+    import cart.tax.TaxCalculator;
+
+    public class Main {
+        public static void main(String[] args) {
+            ShoppingCart cart = new ShoppingCart();
+
+            // Adding items to the cart
+            cart.addItem(new Item("Laptop", "Electronics", 800.0, 1));
+            cart.addItem(new Item("Headphones", "Electronics", 50.0, 3));
+            cart.addItem(new Item("Jacket", "Clothing", 100.0, 2));
+            cart.addItem(new Item("Book", "Books", 20.0, 5));
+
+            // Apply discounts
+            DiscountHandler discountHandler = new DiscountHandler(cart);
+            discountHandler.applyDiscounts();
+
+            // Calculate tax
+            TaxCalculator taxCalculator = new TaxCalculator(cart);
+            taxCalculator.applyTaxes();
+
+            // Generate and display invoice
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator(cart);
+            invoiceGenerator.printInvoice();
+        }
+    }
+    
+
+7. Expected Output:
+
+    
+    Shopping Cart Invoice
+    ---------------------
+    Item        Category      Quantity    Price   Discount   Tax     Total
+    ----------------------------------------------------------------------
+    LAPTOP      Electronics       1       800.0      -       64.0   864.0
+    HEADPHONES  Electronics       3        50.0     10%      12.0   147.0
+    JACKET      Clothing          2       100.0     15%      10.0   180.0
+    BOOK        Books             5        20.0      -        3.0    97.0
+    ----------------------------------------------------------------------
+    Subtotal: $1288.0
+    Total Discount: $50.0
+    Total Tax: $89.0
+    Final Amount Payable: $1327.0
+    
+
+Explanation:
+- The application structure covers the use of arrays to store items, string operations for formatting names, control statements for applying discounts, and loops to process each item. Each package and class serves a distinct purpose, encapsulating specific responsibilities to manage the cart's complexity effectively. 
+
